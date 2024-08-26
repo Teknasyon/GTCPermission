@@ -226,10 +226,10 @@ open class Permission: NSObject {
         let status = self.status
 
         switch status {
-        case .authorized:    callbacks(status)
-        case .notDetermined: presentPrePermissionAlert ? prePermissionAlert.present() : requestAuthorization(callbacks)
-        case .denied:        presentDeniedAlert ? deniedAlert.present() : callbacks(status)
-        case .disabled:      presentDisabledAlert ? disabledAlert.present() : callbacks(status)
+        case .authorized, .limited:    callbacks(status)
+        case .notDetermined:           presentPrePermissionAlert ? prePermissionAlert.present() : requestAuthorization(callbacks)
+        case .denied:                  presentDeniedAlert ? deniedAlert.present() : callbacks(status)
+        case .disabled:                presentDisabledAlert ? disabledAlert.present() : callbacks(status)
         }
     }
 

@@ -24,6 +24,7 @@
 
 public enum PermissionStatus: String {
     case authorized    = "Authorized"
+    case limited       = "Limited"
     case denied        = "Denied"
     case disabled      = "Disabled"
     case notDetermined = "Not Determined"
