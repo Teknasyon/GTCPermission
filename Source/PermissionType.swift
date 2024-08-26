@@ -139,3 +139,42 @@ extension PermissionType: CustomStringConvertible {
         }
     }
 }
+
+extension PermissionType: Equatable {
+    public static func ==(lhs: PermissionType, rhs: PermissionType) -> Bool {
+        switch (lhs, rhs) {
+        case (.contacts, .contacts):
+            return true
+        case (.locationAlways, .locationAlways):
+            return true
+        case (.locationWhenInUse, .locationWhenInUse):
+            return true
+        case (let .notifications(lhsOptions), let .notifications(rhsOptions)):
+            return lhsOptions == rhsOptions
+        case (.microphone, .microphone):
+            return true
+        case (.camera, .camera):
+            return true
+        case (.photos, .photos):
+            return true
+        case (.reminders, .reminders):
+            return true
+        case (.events, .events):
+            return true
+        case (.bluetooth, .bluetooth):
+            return true
+        case (.motion, .motion):
+            return true
+        case (.speechRecognizer, .speechRecognizer):
+            return true
+        case (.mediaLibrary, .mediaLibrary):
+            return true
+        case (.siri, .siri):
+            return true
+        case (.never, .never):
+            return true
+        default:
+            return false
+        }
+    }
+}
