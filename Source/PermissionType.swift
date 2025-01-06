@@ -143,36 +143,76 @@ extension PermissionType: CustomStringConvertible {
 extension PermissionType: Equatable {
     public static func ==(lhs: PermissionType, rhs: PermissionType) -> Bool {
         switch (lhs, rhs) {
+        #if PERMISSION_CONTACTS
         case (.contacts, .contacts):
             return true
+        #endif
+        
+        #if PERMISSION_LOCATION
         case (.locationAlways, .locationAlways):
             return true
         case (.locationWhenInUse, .locationWhenInUse):
             return true
+        #endif
+        
+        #if PERMISSION_NOTIFICATIONS
         case (let .notifications(lhsOptions), let .notifications(rhsOptions)):
             return lhsOptions == rhsOptions
+        #endif
+            
+        #if PERMISSION_MICROPHONE
         case (.microphone, .microphone):
             return true
+        #endif
+            
+        #if PERMISSION_CAMERA
         case (.camera, .camera):
             return true
+        #endif
+            
+        #if PERMISSION_PHOTOS
         case (.photos, .photos):
             return true
+        #endif
+            
+        #if PERMISSION_REMINDERS
         case (.reminders, .reminders):
             return true
+        #endif
+            
+        #if PERMISSION_EVENTS
         case (.events, .events):
             return true
+        #endif
+            
+        #if PERMISSION_BLUETOOTH
         case (.bluetooth, .bluetooth):
             return true
+        #endif
+            
+        #if PERMISSION_MOTION
         case (.motion, .motion):
             return true
+        #endif
+            
+        #if PERMISSION_SPEECH_RECOGNIZER
         case (.speechRecognizer, .speechRecognizer):
             return true
+        #endif
+            
+        #if PERMISSION_MEDIA_LIBRARY
         case (.mediaLibrary, .mediaLibrary):
             return true
+        #endif
+            
+        #if PERMISSION_SIRI
         case (.siri, .siri):
             return true
+        #endif
+            
         case (.never, .never):
             return true
+            
         default:
             return false
         }
