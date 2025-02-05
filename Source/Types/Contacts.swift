@@ -35,7 +35,9 @@ extension Permission {
         case .authorized:          return .authorized
         case .restricted, .denied: return .denied
         case .notDetermined:       return .notDetermined
+#if compiler(>=1600)
         case .limited:             return .limited
+#endif
         @unknown default:          return .notDetermined
         }
     }
