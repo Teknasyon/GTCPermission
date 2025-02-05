@@ -16,6 +16,8 @@ Pod::Spec.new do |s|
 
   s.default_subspec = 'Core'
 
+  s.module_name = "Permission"
+
   s.subspec 'Core' do |co|
     co.source_files = 'Source/**/*.{swift, h}'
   end
