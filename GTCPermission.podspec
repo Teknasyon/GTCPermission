@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
-  s.name          = 'Permission'
-  s.version       = '3.1.3'
+  s.name          = 'GTCPermission'
+  s.version       = '3.1.4'
   s.license       = 'MIT'
-  s.homepage      = 'https://github.com/Teknasyon/Permission'
+  s.homepage      = 'https://github.com/Teknasyon/GTCPermission'
   s.author        = { 'Hüseyin Metin' => 'huseyinmetin@teknasyon.com' }
   s.summary       = 'A unified API to ask for permissions on iOS'
-  s.source        = { :git => 'https://github.com/Teknasyon/Permission.git', :tag => s.version }
+  s.source        = { :git => 'https://github.com/Teknasyon/GTCPermission.git', :tag => s.version }
   s.swift_version = '5.1'
 
   s.weak_framework = 'Speech'
