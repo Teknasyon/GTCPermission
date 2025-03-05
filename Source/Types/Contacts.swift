@@ -35,26 +35,6 @@ extension Permission {
         case .authorized:          return .authorized
         case .restricted, .denied: return .denied
         case .notDetermined:       return .notDetermined
-        @unknown default:          return .notDetermined
-            
-        }
-    }
-}
-#endif
-
-#if PERMISSION_LIMITED_CONTACTS
-import Contacts
-
-extension Permission {
-    var statusContacts: PermissionStatus {
-        guard #available(iOS 18.0, *) else { fatalError() }
-        
-        let status = CNContactStore.authorizationStatus(for: .contacts)
-        
-        switch status {
-        case .authorized:          return .authorized
-        case .restricted, .denied: return .denied
-        case .notDetermined:       return .notDetermined
         case .limited:             return .limited
         @unknown default:          return .notDetermined
         }
@@ -62,7 +42,26 @@ extension Permission {
 }
 #endif
 
-#if PERMISSION_CONTACTS || PERMISSION_LIMITED_CONTACTS
+#if PERMISSION_CONTACTS_LEGACY
+import Contacts
+
+extension Permission {
+    var statusContacts: PermissionStatus {
+        guard #available(iOS 9.0, *) else { fatalError() }
+        
+        let status = CNContactStore.authorizationStatus(for: .contacts)
+        
+        switch status {
+        case .authorized:          return .authorized
+        case .restricted, .denied: return .denied
+        case .notDetermined:       return .notDetermined
+        @unknown default:          return .notDetermined
+        }
+    }
+}
+#endif
+
+#if PERMISSION_CONTACTS || PERMISSION_CONTACTS_LEGACY
 extension Permission {
     func requestContacts(_ callback: @escaping Callback) {
         guard #available(iOS 9.0, *) else { fatalError() }

@@ -27,7 +27,7 @@ public enum PermissionType {
     case contacts
     #endif
     
-    #if PERMISSION_LIMITED_CONTACTS
+    #if PERMISSION_CONTACTS_LEGACY
     case contacts
     #endif
 
@@ -90,7 +90,7 @@ extension PermissionType: CustomStringConvertible {
         case .contacts: return "Contacts"
         #endif
             
-        #if PERMISSION_LIMITED_CONTACTS
+        #if PERMISSION_CONTACTS_LEGACY
         case .contacts: return "Contacts"
         #endif
 
@@ -156,7 +156,7 @@ extension PermissionType: Equatable {
             return true
         #endif
             
-        #if PERMISSION_LIMITED_CONTACTS
+        #if PERMISSION_CONTACTS_LEGACY
         case (.contacts, .contacts):
             return true
         #endif

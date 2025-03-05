@@ -30,7 +30,7 @@ open class Permission: NSObject {
     public static let contacts = Permission(type: .contacts)
     #endif
     
-    #if PERMISSION_LIMITED_CONTACTS
+    #if PERMISSION_CONTACTS_LEGACY
     /// The permission to access the user's contacts for Limited Contact Access
     public static let contacts = Permission(type: .contacts)
     #endif
@@ -124,7 +124,7 @@ open class Permission: NSObject {
         case .contacts: return statusContacts
         #endif
             
-        #if PERMISSION_LIMITED_CONTACTS
+        #if PERMISSION_CONTACTS_LEGACY
         case .contacts: return statusContacts
         #endif
 
@@ -248,7 +248,7 @@ open class Permission: NSObject {
         case .contacts: requestContacts(callback)
         #endif
 
-        #if PERMISSION_LIMITED_CONTACTS
+        #if PERMISSION_CONTACTS_LEGACY
         case .contacts: requestContacts(callback)
         #endif
             
