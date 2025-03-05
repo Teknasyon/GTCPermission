@@ -29,6 +29,11 @@ open class Permission: NSObject {
     /// The permission to access the user's contacts.
     public static let contacts = Permission(type: .contacts)
     #endif
+    
+    #if PERMISSION_LIMITED_CONTACTS
+    /// The permission to access the user's contacts for Limited Contact Access
+    public static let contacts = Permission(type: .contacts)
+    #endif
 
     #if PERMISSION_LOCATION
     /// The permission to access the user's location when the app is in background.
@@ -116,6 +121,10 @@ open class Permission: NSObject {
     open var status: PermissionStatus {
         switch type {
         #if PERMISSION_CONTACTS
+        case .contacts: return statusContacts
+        #endif
+            
+        #if PERMISSION_LIMITED_CONTACTS
         case .contacts: return statusContacts
         #endif
 
@@ -239,6 +248,10 @@ open class Permission: NSObject {
         case .contacts: requestContacts(callback)
         #endif
 
+        #if PERMISSION_LIMITED_CONTACTS
+        case .contacts: requestContacts(callback)
+        #endif
+            
         #if PERMISSION_LOCATION
         case .locationAlways: requestLocationAlways(callback)
         case .locationWhenInUse: requestLocationWhenInUse(callback)

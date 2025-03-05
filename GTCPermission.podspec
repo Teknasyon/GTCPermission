@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = 'GTCPermission'
-  s.version       = '3.1.6'
+  s.version       = '3.1.7'
   s.license       = 'MIT'
   s.homepage      = 'https://github.com/Teknasyon/GTCPermission'
   s.author        = { 'Hüseyin Metin' => 'huseyinmetin@teknasyon.com' }
@@ -35,6 +35,11 @@ Pod::Spec.new do |s|
   s.subspec 'Contacts' do |cn|
     cn.dependency 'GTCPermission/Core'
     cn.pod_target_xcconfig = { 'SWIFT_ACTIVE_COMPILATION_CONDITIONS'  => 'PERMISSION_CONTACTS' }
+  end
+
+  s.subspec 'Contacts' do |cn|
+    cn.dependency 'GTCPermission/Core'
+    cn.pod_target_xcconfig = { 'SWIFT_ACTIVE_COMPILATION_CONDITIONS'  => 'PERMISSION_LIMITED_CONTACTS' }
   end
 
   s.subspec 'Events' do |ev|

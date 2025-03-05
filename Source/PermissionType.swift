@@ -26,6 +26,10 @@ public enum PermissionType {
     #if PERMISSION_CONTACTS
     case contacts
     #endif
+    
+    #if PERMISSION_LIMITED_CONTACTS
+    case contacts
+    #endif
 
     #if PERMISSION_LOCATION
     case locationAlways
@@ -83,6 +87,10 @@ extension PermissionType: CustomStringConvertible {
     public var description: String {
         switch self {
         #if PERMISSION_CONTACTS
+        case .contacts: return "Contacts"
+        #endif
+            
+        #if PERMISSION_LIMITED_CONTACTS
         case .contacts: return "Contacts"
         #endif
 
@@ -144,6 +152,11 @@ extension PermissionType: Equatable {
     public static func ==(lhs: PermissionType, rhs: PermissionType) -> Bool {
         switch (lhs, rhs) {
         #if PERMISSION_CONTACTS
+        case (.contacts, .contacts):
+            return true
+        #endif
+            
+        #if PERMISSION_LIMITED_CONTACTS
         case (.contacts, .contacts):
             return true
         #endif
