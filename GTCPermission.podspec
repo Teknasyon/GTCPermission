@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = 'GTCPermission'
-  s.version       = '3.2.0'
+  s.version       = '3.2.1'
   s.license       = 'MIT'
   s.homepage      = 'https://github.com/Teknasyon/GTCPermission'
   s.author        = { 'Hüseyin Metin' => 'huseyinmetin@teknasyon.com' }
