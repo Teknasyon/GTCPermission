@@ -204,6 +204,26 @@ class PermissionsViewController: UIViewController, PermissionSetDelegate {
 
 ## Installation
 
+### Swift Package Manager
+
+`Permission` is available via Swift Package Manager. In Xcode, go to **File > Add Packages...** and add `https://github.com/Teknasyon/GTCPermission.git`, or declare it in your `Package.swift` like this:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/Teknasyon/GTCPermission.git", from: "3.2.2")
+],
+targets: [
+    .target(
+        name: "App",
+        dependencies: [
+            .product(name: "Permission", package: "GTCPermission")
+        ]
+    )
+]
+```
+
+By default, build flags for all permission categories are enabled. If you want to compile only specific permissions, adjust the `permissionDefines` array in your fork’s `Package.swift`.
+
 ### Carthage
 
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that automates the process of adding frameworks to your Cocoa application.
