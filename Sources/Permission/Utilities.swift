@@ -22,6 +22,8 @@
 // SOFTWARE.
 //
 
+import UIKit
+
 extension UIApplication {
     private var topViewController: UIViewController? {
         var vc = keyWindow?.rootViewController

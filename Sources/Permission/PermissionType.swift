@@ -22,6 +22,11 @@
 // SOFTWARE.
 //
 
+import Foundation
+#if PERMISSION_NOTIFICATIONS
+import UserNotifications
+#endif
+
 public enum PermissionType {
     #if PERMISSION_CONTACTS
     case contacts

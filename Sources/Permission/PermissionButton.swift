@@ -22,6 +22,8 @@
 // SOFTWARE.
 //
 
+import UIKit
+
 open class PermissionButton: UIButton {
 
     /// The permission of the button.

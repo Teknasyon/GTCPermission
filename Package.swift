@@ -47,6 +47,7 @@ let package = Package(
             name: "Permission",
             path: "Sources/Permission",
             swiftSettings: [
+                .swiftLanguageMode(.v5),
                 .define("PERMISSION_BLUETOOTH", .when(traits: ["Bluetooth"])),
                 .define("PERMISSION_CAMERA", .when(traits: ["Camera"])),
                 .define("PERMISSION_CONTACTS", .when(traits: ["Contacts"])),

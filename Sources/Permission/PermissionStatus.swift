@@ -22,6 +22,8 @@
 // SOFTWARE.
 //
 
+import Foundation
+
 public enum PermissionStatus: String {
     case authorized    = "Authorized"
     case limited       = "Limited"

@@ -22,6 +22,8 @@
 // SOFTWARE.
 //
 
+import Foundation
+
 open class PermissionSet {
 
     /// The permissions in the set.
